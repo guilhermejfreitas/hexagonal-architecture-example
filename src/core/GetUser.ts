@@ -7,6 +7,12 @@ export default class GetUser {
     }
 
     async findById(id : number){
+
+        if (!id) { throw 'EMPTY_PARAM'};
+
+        if (!this.adapter.findById) { throw "CORE_FUNCTION_NOT_EXISTS" };
+        
         return await this.adapter.findById(id);
+        
     }
 }

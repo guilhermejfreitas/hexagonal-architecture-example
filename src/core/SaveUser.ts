@@ -7,6 +7,11 @@ export default class SaveUser {
     }
 
     async saveUser(id : number, name : string, age : number){
+
+        if (!id || !name || !age) { throw 'EMPTY_PARAM' };
+
+        if (!this.adapter.saveUser) { throw "CORE_FUNCTION_NOT_EXISTS" };
+
         return await this.adapter.saveUser(id, name, age);
     }
 }

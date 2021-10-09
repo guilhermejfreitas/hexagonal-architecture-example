@@ -17,7 +17,7 @@ export default class InMemoryAdapter implements IDatabasePort {
 
     async findById (id : number) : Promise<{id : number, name : string, age : number}>{
 
-        console.log(id);
+        if (!id){ throw "EMPTY_PARAM"; };
 
         const user = this.memoryDatabase.filter((user) => {
             if (user.id == id){
@@ -25,11 +25,17 @@ export default class InMemoryAdapter implements IDatabasePort {
             }
         });
 
+        if (user.length === 0){ throw "DB_NOT_FOUND"; }
+
         return {id:user[0].id, name:user[0].name, age:user[0].age};
 
     }
 
-    async saveUser(id : number, name: string, age : number){
+    saveUser(id : number, name: string, age : number) : void {
+
+        if (!id || !name || !age)
+            throw "EMPTY_PARAM";
+
         this.memoryDatabase.push({id, name, age});
     }
 }
