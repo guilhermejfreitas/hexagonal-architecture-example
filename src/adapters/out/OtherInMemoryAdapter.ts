@@ -1,6 +1,6 @@
-import IDatabasePort from '../../ports/DatabasePort';
+import DatabasePort from '../../ports/DatabasePort';
 
-export default class OtherInMemoryAdapter implements IDatabasePort {
+export default class OtherInMemoryAdapter implements DatabasePort {
 
     memoryDatabase = [];
 
