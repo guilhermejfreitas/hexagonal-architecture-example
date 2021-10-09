@@ -1,0 +1,15 @@
+{
+	"name": "hexagonal-architecture",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./dist/index.js",
+	"scripts": {
+		"start": "./node_modules/.bin/tsc.cmd && node ./dist/index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"typescript": "^4.4.3"
+	}
+}
